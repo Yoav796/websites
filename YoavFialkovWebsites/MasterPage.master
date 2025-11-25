@@ -4,20 +4,44 @@
 
 <html>
 <head runat="server">
-    <title></title>
+    <title>yoav project1 </title>
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
+    <style>
+        td {
+  text-align: center;
+}
+        img.a {
+            width:200px;
+            height:150px
+        }
+    </style>
 </head>
-<body>
-    <h1>master start</h1>
-        <h1>master end</h1>
+<body style ="background-color:darkgray">
+  
+    <table border ="1" style="width: 100%; height: 800px">
+        <tr>
+    <th style="height: 150px">  <h1>Yoav project 1</h1></th>
+  </tr>
+  <tr>
+    <td  style="height: 150px ">
+        <a href="log%20in.aspx"> <img class="a" src="images/image%201.png" /></a> 
+        <a href ="sign%20up.aspx"> <img class="a" src="images/image%202.png" /></a> 
+        <a href="information.aspx"><img class="a" src="images/image%201.png" /></a>
 
-    <form id="form1" runat="server">
-    <div>
-        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+    </td>
+  </tr>
+        <tr>
+            <td style="height: 400px">
+                <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+</asp:ContentPlaceHolder>
+            </td>
+        </tr>
+  <tr>
+    <td>
         
-        </asp:ContentPlaceHolder>
-    </div>
-    </form>
+    </td>
+  </tr>
+    </table>
 </body>
 </html>
