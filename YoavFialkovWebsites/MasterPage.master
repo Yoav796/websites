@@ -12,7 +12,7 @@
   text-align: center;
 }
        p {
-           font-size: 30px;
+           font-size: 25px;
            display: inline-block;
            margin-right: 15px;
            border-left: 1px solid black;
@@ -39,6 +39,7 @@
         <a href="log%20out.aspx"><p>log out</p></a>
         <a href="Simple%20search.aspx"><p>simple search</p></a>
         <a href="Update%20details.aspx"><p>update details</p></a>
+       
 
     </td>
   </tr>
@@ -46,6 +47,8 @@
             <td style="height: 400px">
                 <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
 </asp:ContentPlaceHolder>
+               <hr />
+<asp:Literal ID="litOutput" runat="server"></asp:Literal>
             </td>
         </tr>
   <tr>
