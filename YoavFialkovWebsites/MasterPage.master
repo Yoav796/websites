@@ -4,7 +4,7 @@
 
 <html>
 <head runat="server">
-    <title>yoav project1 </title>
+    <title>אתר הספורט </title>
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
     <style>
@@ -25,7 +25,7 @@
   
     <table border ="1" style="width: 100%; height: 800px">
         <tr>
-    <th style="height: 150px">  <h1>Yoav project 1</h1></th>
+    <th style="height: 150px">  <h1>אתר הספורט</h1></th>
   </tr>
   <tr>
     <td  style="height: 150px ">
