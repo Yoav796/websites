@@ -19,34 +19,23 @@ public partial class form : System.Web.UI.Page
     {
         if (IsPostBack)
         {
-            string username = "username:" + Request.Form["username"];
-            string password = "password:" + Request.Form["password"];
-            string favoritePlayer = "favoritePlayer:" + Request.Form["favoritePlayer"];
-            string favoriteSport = "favoriteSport:" + Request.Form["favoriteSport"];
-            string age = "age:" + Request.Form["age"];
+            username = Request.Form["username"];
+            password = Request.Form["password"];
+            favoriteSport = Request.Form["favoriteSport"];
+            favoritePlayer = Request.Form["favoritePlayer"];
+            age = Request.Form["age"];
 
             string sqlInsert =
                 "INSERT INTO tUsers " +
-                "VALUES (" +
-                "N'" + username + "', " +
+                "values (N'" + username + "', " +
                 "N'" + password + "', " +
-                "n'" + favoriteSport + "', " +
-                "n'" + favoritePlayer + "'" +
-                "N" + age +
-
-                ")";
+                "N'" + favoriteSport + "', " +
+                "N'" + favoritePlayer + "', " +
+                "N'" + age + "')";
 
             MyAdoHelper.DoQuery("myDB.mdf", sqlInsert);
 
             st = "Thank you for signing up!";
-
-
-            string[] players = Request.Form.GetValues("favoritePlayer");
-            if (players != null)
-            {
-                favoritePlayer = "favorite players: " + string.Join(", ", players);
-            }
         }
-
     }
-}
+    }

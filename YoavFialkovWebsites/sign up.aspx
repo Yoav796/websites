@@ -40,8 +40,7 @@ password: <input type="password" name="password" placeholder ="password" /><br /
     <%=age %>
         </div>
 
-
-
+    <%=st %>
     
 </asp:Content>
 
