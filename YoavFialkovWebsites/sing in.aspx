@@ -3,6 +3,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
-    <h1>sign in</h1>
+    <form runat="server" method="post">
+
+ username : <input type="text" name="email" placeholder ="email" /><br /> 
+password: <input type="password" name="password" placeholder ="password" /><br /> 
+    <input id="sumbit1" type="submit" value="submit" />
+        </form>
+    <%=stResult %>
 </asp:Content>
 

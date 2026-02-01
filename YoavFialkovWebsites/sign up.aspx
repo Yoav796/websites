@@ -4,6 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
         <center> <h1>sign up - sport website</h1> </center>
+    <form runat="server" method="post">
     <div style="text-align: left; margin-left: 20px;">
 
 username: <input type="text" name="username" placeholder ="username" /><br /> 
@@ -28,17 +29,8 @@ password: <input type="password" name="password" placeholder ="password" /><br /
     </select>
     <input id="sumbit1" type="submit" value="submit" />
     <br />
-
-    <%=username %>
-    <br />
-    <%=password %>
-    <br />
-    <%=favoritePlayer %>
-    <br />
-    <%=favoriteSport %>
-    <br />
-    <%=age %>
         </div>
+                </form>
 
     <%=st %>
     

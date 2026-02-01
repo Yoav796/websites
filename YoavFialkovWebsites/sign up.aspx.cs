@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.ServiceModel.Security;
 using System.Web;
 using System.Web.UI;
@@ -17,7 +18,10 @@ public partial class form : System.Web.UI.Page
     public string favoritePlayer;
     protected void Page_Load(object sender, EventArgs e)
     {
+
         if (IsPostBack)
+
+
         {
             username = Request.Form["username"];
             password = Request.Form["password"];
@@ -25,7 +29,23 @@ public partial class form : System.Web.UI.Page
             favoritePlayer = Request.Form["favoritePlayer"];
             age = Request.Form["age"];
 
-            string sqlInsert =
+
+
+            string sqlSelect =
+                "SELECT * FROM tUsers " +
+                "WHERE username= N'" + username + "' ";
+
+            bool userExist = MyAdoHelper.IsExist(sqlSelect);
+
+            if (userExist)
+                st = "gmail exists";
+            else
+
+            {
+
+
+
+                string sqlInsert =
                 "INSERT INTO tUsers " +
                 "values (N'" + username + "', " +
                 "N'" + password + "', " +
@@ -33,9 +53,11 @@ public partial class form : System.Web.UI.Page
                 "N'" + favoritePlayer + "', " +
                 "N'" + age + "')";
 
-            MyAdoHelper.DoQuery("myDB.mdf", sqlInsert);
+                MyAdoHelper.DoQuery("myDB.mdf", sqlInsert);
 
-            st = "Thank you for signing up!";
+                st = "Thank you for signing up!";
+
+            }
         }
     }
-    }
+}
