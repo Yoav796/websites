@@ -16,20 +16,25 @@ public partial class _Default : System.Web.UI.Page
             string username = Request.Form["username"];
             string password = Request.Form["password"];
 
-            string sqlSelect =
-                "SELECT * FROM tUsers " +
-                "WHERE username= N' " + username + "' " +
-                "AND passward = N'" + password + "' ";
-
-            bool userExist = MyAdoHelper.IsExist(sqlSelect);
-
-            if (userExist)
-                stResult = "gmail/password are wrong";
-            else
-            {
-                stResult = "you are already a user";
-                Response.Redirect("home page.aspx");
+            if (username == "yoavi.fialkov@gmail.com" && password == "1234"){
+                Response.Redirect("manager.aspx");
             }
+            else { //1
+                string sqlSelect =
+                    "SELECT * FROM tUsers " +
+                    "WHERE username= N' " + username + "' " +
+                    "AND passward = N'" + password + "' ";
+
+                bool userExist = MyAdoHelper.IsExist(sqlSelect);
+
+                if (userExist)
+                    stResult = "gmail/password are wrong";
+                else
+                {
+                    stResult = "you are already a user";
+                    Response.Redirect("home page.aspx");
+                }
+            }  //1
         }
     }
 }
