@@ -13,14 +13,14 @@ public partial class Default2 : System.Web.UI.Page
     public string st = "";
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (Page.IsPostBack)
-        {
+        
+        
             string un = Request.Form["username"];
             string pw = Request.Form["password"];
 
             string sql = "SELECT * FROM tUsers WHERE " +
-                "userName = N'" + un + "' AND " +
-                "passward = N'" + pw + "'";
+                "userName LIKE N'%" + un + "%' AND " +
+                "passward LIKE N'%" + pw + "%'";
             ;
 
             DataTable dt = MyAdoHelper.ExecuteDataTable(sql);
@@ -37,7 +37,7 @@ public partial class Default2 : System.Web.UI.Page
                 st += "<td>username</td>";
                 st += "<td>passward</td>";
                 st += "<td>favotie sport</td>";
-                st += "<td>favorite players</td>";
+                st += "<td>favorite play</td>";
                 st += "<td>age</td>";
                 st += "</tr>";
 
@@ -53,8 +53,6 @@ public partial class Default2 : System.Web.UI.Page
                 }
                 st += "</table>";
 
-            }
-
-        }
+           }
     }
 }
