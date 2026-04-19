@@ -4,61 +4,80 @@
 
 <html>
 <head runat="server">
-    <title>חדשות הספורט </title>
+    <title>חדשות הספורט</title>
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
     <style>
         td {
-  text-align: center;
-}
-       p {
-           font-size: 25px;
-           display: inline-block;
-           margin-right: 15px;
-           border-left: 1px solid black;
-           padding-left: 20px;
-           padding-right: 20px;
-       }
+            text-align: center;
+        }
+        p {
+            font-size: 25px;
+            display: inline-block;
+            margin-right: 15px;
+            border-left: 1px solid black;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+        .logo-img {
+            height: 100px; 
+            width: auto;    
+            vertical-align: middle;
+            margin-left: 15px;
+        }
+        .site-title {
+            display: inline-block;
+            vertical-align: middle;
+        }
     </style>
 </head>
-<body style ="background-color:darkgray">
-         <%="username" %>
+<body style="background-color:darkgray">
+    <%=Session["username"] %>
 
-  
-    <table border ="1" style="width: 100%; height: 800px">
+    <table border="1" style="width: 100%; height: 800px">
         <tr>
-    <th style="height: 150px">  <h1>אתר הספורט</h1></th>
-
-     
-  </tr>
-  <tr>
-    <td  style="height: 150px ">
-        <a href="home%20page.aspx"> <p>home page</p></a>
-        <a href="gallery.aspx"><p>gallery</p></a>
-        <a href="about.aspx"><p>about</p></a>
-        <a href="sign%20up.aspx"><p>sign up</p></a>
-        <a href="manager.aspx"><p>manager</p></a>
-        <a href="sing%20in.aspx"><p>sign in</p></a>
-        <a href="complex%20search.aspx"><p>complex search</p></a>
-        <a href="log%20out.aspx"><p>log out</p></a>
-        <a href="Simple%20search.aspx"><p>simple search</p></a>
-        <a href="Update%20details.aspx"><p>update details</p></a>
-    </td>
-  </tr>        
-
-        
+            <th style="height: 150px">
+                <a href="home%20page.aspx">
+                    <img src="images/תמונה%20לעבודה.jpg" class="logo-img" alt="Logo" />
+                </a>
+                <h1 class="site-title">אתר הספורט</h1>
+            </th>
+        </tr>
         <tr>
-            
+            <td style="height: 150px">
+                <a href="home%20page.aspx"><p>home page</p></a>
+                <a href="about.aspx"><p>about</p></a>
+                <a href="sign%20up.aspx"><p>sign up</p></a>
+
+                <%if (Session["nihol"] == "ok") { %>
+
+                                <a href="manager.aspx"><p>manager</p></a>
+           <%  } %>
+
+                <a href="sing%20in.aspx"><p>sign in</p></a>
+                <a href="complex%20search.aspx"><p>complex search</p></a>
+                <a href="log%20out.aspx"><p>log out</p></a>
+                <a href="Simple%20search.aspx"><p>simple search</p></a>
+
+                <%if (Session["nihol"] == "ok" || Session["user"] == "ok" ) {  %>
+
+                <a href="Update%20details.aspx"><p>update details</p></a>
+                                <a href="gallery.aspx"><p>gallery</p></a>
+
+
+                <%} %>
+            </td>
+        </tr>        
+        <tr>
             <td style="height: 400px">
                 <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
-</asp:ContentPlaceHolder>
+                </asp:ContentPlaceHolder>
             </td>
         </tr>
-  <tr>
-    <td>
-        
-    </td>
-  </tr>
+        <tr>
+            <td>
+            </td>
+        </tr>
     </table>
 
 </body>

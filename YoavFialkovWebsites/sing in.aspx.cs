@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Activities.Expressions;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -18,25 +19,27 @@ public partial class _Default : System.Web.UI.Page
 
             if (username == "yoavi.fialkov@gmail.com" && password == "1234"){
                 Session["username"] = "manager";
+                Session["nihol"] = "ok";
                 Response.Redirect("manager.aspx");
             }
             else { //1
                 string sqlSelect =
                     "SELECT * FROM tUsers " +
-                    "WHERE username= N' " + username + "' " +
+                    "WHERE username= N'" + username + "' " +
                     "AND passward = N'" + password + "' ";
 
-                bool userExist = MyAdoHelper.IsExist(sqlSelect);
+                DataTable dt = MyAdoHelper.ExecuteDataTable(sqlSelect);
 
-                if (userExist)
+                if (dt.Rows.Count == 0)
                 {
                     Session["username"] = "guest";
                     stResult = "gmail/password are wrong";
                 }
                 else
                 {
+                    Session["user"] = "ok";
                     stResult = "you are already a user";
-                    Session["username"] = "userExists";
+                    Session["username"] = dt.Rows[0]["username"];
                     Response.Redirect("home page.aspx");
                 }
             }  //1
