@@ -17,6 +17,7 @@ public partial class _Default : System.Web.UI.Page
             string password = Request.Form["password"];
 
             if (username == "yoavi.fialkov@gmail.com" && password == "1234"){
+                Session["username"] = "manager";
                 Response.Redirect("manager.aspx");
             }
             else { //1
@@ -28,10 +29,14 @@ public partial class _Default : System.Web.UI.Page
                 bool userExist = MyAdoHelper.IsExist(sqlSelect);
 
                 if (userExist)
+                {
+                    Session["username"] = "guest";
                     stResult = "gmail/password are wrong";
+                }
                 else
                 {
                     stResult = "you are already a user";
+                    Session["username"] = "userExists";
                     Response.Redirect("home page.aspx");
                 }
             }  //1
