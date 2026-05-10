@@ -7,18 +7,14 @@ public partial class ComplexSearch : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        // קליטת הערך מהטופס
         string search = Request.Form["searchName"];
 
-        // בניית השאילתה
         string sql = "SELECT * FROM Seacrh";
         if (!string.IsNullOrEmpty(search))
         {
             sql = "SELECT * FROM Seacrh WHERE playerName LIKE N'%" + search + "%'";
         }
 
-        // תיקון השורה הבעייתית: רוב הסיכויים שהפונקציה מקבלת רק את sql
-        // אם השגיאה נמשכת, נסה להוריד את ה-"myDB.mdf"
         DataTable dt = MyAdoHelper.ExecuteDataTable(sql);
 
         if (dt == null || dt.Rows.Count == 0)

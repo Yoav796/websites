@@ -3,9 +3,32 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <script language ="javascript">
         function checkAll() {
-        return true;
+            return true;
+
+            usernameError.innerHTML = "";
+            favoriteSport.innerHTML = "";
+            favoritePlayer.innerHTML = "";
+            ageError.innerHTML = "";
+
+            f = true; 
+
+            f = checkUserName() && f;
+            f = checkfavoriteSport() && f;
+            f = checkFavoritePlayer() && f;
+            f = checkAge() && f;
+            return f;
+
+            function checkUserName() {
+                name = document.getElemmentById("userName").value;
+                if (name.length < 2 || name.length > 30) {
+                    usernameError.innerHTML = "the lenght of the name is not proper"
+                    return false
+                }
+                return true
+            }
+
         }
-        </script>
+    </script>
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
