@@ -25,7 +25,7 @@ public partial class ComplexSearch : System.Web.UI.Page
         {
             st += "<table border='1' style='direction:rtl; text-align:center; width:80%;'>";
             st += "<tr style='background-color: #f2f2f2;'>";
-            st += "<th>ID</th><th>שם שחקן</th><th>ספורט</th><th>תאריך</th><th>גיל</th>";
+            st += "<th>ID</th><th>שם שחקן</th><th>ספורט</th><th>תאריך</th><th>גיל</th><th>טקסט חופשי</th>";
             st += "</tr>";
 
             for (int i = 0; i < dt.Rows.Count; i++)

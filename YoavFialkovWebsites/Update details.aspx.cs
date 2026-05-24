@@ -10,30 +10,26 @@ public partial class UpdateDetails : System.Web.UI.Page
     {
         if (Page.IsPostBack)
         {
-            // קליטת הנתונים מהטופס
+            // שליפת הנתונים מהטופס
             string pName = Request.Form["playerName"];
             string sport = Request.Form["sport"];
             string date = Request.Form["articleDate"];
             string age = Request.Form["age"];
+            string freeText = Request.Form["freeText"]; // השדה החדש שהוספנו
 
-            // בניית השאילתה - השמותplayerName, sport, date, age חייבים להתאים לטבלה Seacrh
-            string sqlInsert = "INSERT INTO Seacrh (playerName, sport, [date], age) VALUES (" +
-                "N'" + pName + "'," +
-                "N'" + sport + "'," +
-                "N'" + date + "'," +
-                "N'" + age + "'" +
-                ")";
+            // יצירת שאילתת ה-SQL עם ציון מפורש של שמות העמודות כפי שהן ב-Database שלך
+            string sqlInsert = "INSERT INTO Seacrh (playerName, sport, [date], age, [freeText]) VALUES (" +
+                "N'" + pName + "', " +
+                "N'" + sport + "', " +
+                "N'" + date + "', " +
+                "N'" + age + "', " +
+                "N'" + freeText + "')";
 
-            try
-            {
-                // הרצת השאילתה מול הקובץ myDB.mdf
-                MyAdoHelper.DoQuery("myDB.mdf", sqlInsert);
-                st = "DONE";
-            }
-            catch (Exception ex)
-            {
-                st = "Error: " + ex.Message;
-            }
+            MyAdoHelper.DoQuery("myDB.mdf", sqlInsert);
+
+            Response.Redirect("complex search.aspx");
+
+           
         }
     }
 }

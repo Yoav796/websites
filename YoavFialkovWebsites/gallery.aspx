@@ -2,7 +2,6 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <style>
-        /* עיצוב הגלריה */
         .gallery-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -10,7 +9,7 @@
             padding: 20px;
             max-width: 1200px;
             margin: 0 auto;
-            direction: ltr; /* תמונות בדרך כלל נראות טוב יותר משמאל לימין */
+            direction: ltr; 
         }
 
         .gallery-item {

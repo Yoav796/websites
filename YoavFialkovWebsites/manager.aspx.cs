@@ -6,53 +6,49 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
- 
-
 public partial class Default2 : System.Web.UI.Page
 {
     public string st = "";
+
     protected void Page_Load(object sender, EventArgs e)
     {
-        
-        
-            string un = Request.Form["username"];
-            string pw = Request.Form["password"];
+        // קבלת הערך משדה החיפוש החדש
+        string search = Request.Form["searchName"];
 
-            string sql = "SELECT * FROM tUsers WHERE " +
-                "userName LIKE N'%" + un + "%' AND " +
-                "passward LIKE N'%" + pw + "%'";
-            ;
+        // שאילתת ברירת מחדל: שליפת כל המשתמשים
+        string sql = "SELECT * FROM tUsers";
 
-            DataTable dt = MyAdoHelper.ExecuteDataTable(sql);
+        // אם המשתמש ביצע חיפוש (השדה לא ריק) - נוסיף תנאי לשאילתה
+        if (!string.IsNullOrEmpty(search))
+        {
+            sql = "SELECT * FROM tUsers WHERE userName LIKE N'%" + search + "%'";
+        }
 
-            if (dt.Rows.Count == 0)
+        // הרצת השאילתה וקבלת הנתונים
+        DataTable dt = MyAdoHelper.ExecuteDataTable(sql);
+
+        if (dt == null || dt.Rows.Count == 0)
+        {
+            st = "<h3 style='color:red;'>לא נמצאו משתמשים</h3>";
+        }
+        else
+        {
+            // בניית הטבלה המעוצבת
+            st += "<table border='1' style='direction:rtl; text-align:center; width:80%;'>";
+            st += "<tr style='background-color: #f2f2f2;'>";
+            st += "<th>שם משתמש</th><th>סיסמה</th><th>ספורט מועדף</th><th>משחק מועדף</th><th>גיל</th>";
+            st += "</tr>";
+
+            for (int i = 0; i < dt.Rows.Count; i++)
             {
-                st = "אין נתונים";
-
-            }
-            else
-            {
-                st += "<table border = '1' >";
                 st += "<tr>";
-                st += "<td>username</td>";
-                st += "<td>passward</td>";
-                st += "<td>favotie sport</td>";
-                st += "<td>favorite play</td>";
-                st += "<td>age</td>";
-                st += "</tr>";
-
-                for (int i = 0; i < dt.Rows.Count; i++)
+                for (int k = 0; k < dt.Columns.Count; k++)
                 {
-                    st += "<tr>";
-
-                    for (int k = 0; k < dt.Columns.Count; k++)
-                    {
-                        st += "<td>" + dt.Rows[i][k] + "</td>";
-                    }
-                    st += "</tr>";
+                    st += "<td style='padding:8px;'>" + dt.Rows[i][k] + "</td>";
                 }
-                st += "</table>";
-
-           }
+                st += "</tr>";
+            }
+            st += "</table>";
+        }
     }
 }
