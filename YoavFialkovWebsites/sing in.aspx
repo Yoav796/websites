@@ -5,10 +5,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <form runat="server" method="post">
 
- username : <input type="text" name="username" placeholder ="email" /><br /> 
-password: <input type="password" name="password" placeholder ="password" /><br /> 
-    <input id="sumbit1" type="submit" value="submit" />
-        </form>
+        username : <input type="text" name="username" placeholder ="email" /><br /> 
+        password: <input type="password" name="password" placeholder ="password" /><br /> 
+        <input id="sumbit1" type="submit" value="submit" />
+    </form>
+    
     <%=stResult %>
 </asp:Content>
-

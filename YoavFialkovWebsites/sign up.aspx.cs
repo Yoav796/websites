@@ -36,6 +36,7 @@ public partial class form : System.Web.UI.Page
             }
             else
             {
+                // אם שם המשתמש פנוי, נבנה שאילתת INSERT להוספת המשתמש החדש לטבלה tUsers
                 string sqlInsert = "INSERT INTO tUsers VALUES (" +
                    "N'" + username + "', " +
                    "N'" + password + "', " +
@@ -43,7 +44,6 @@ public partial class form : System.Web.UI.Page
                    "N'" + favoritePlayer + "', " +
                    "N'" + age + "')";
 
-               
                 MyAdoHelper.DoQuery("myDB.mdf", sqlInsert);
 
                 st = "Thank you for signing up!";

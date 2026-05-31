@@ -2,50 +2,51 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <style>
+        /* הגדרות עיצוב עבור המיכל הראשי שמחזיק את כל הגלריה */
         .gallery-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-            direction: ltr; 
+            display: grid; /* משתמש בשיטת גריד (רשת) כדי לסדר את הפריטים בטורים ושורות */
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* מחשב אוטומטית כמה תמונות נכנסות בשורה לפי רוחב המסך */
+            gap: 20px; /* יוצר מרווח של 20 פיקסלים בין הריבועים */
+            padding: 20px; /* רווח פנימי מסביב לכל הגלריה */
+            max-width: 1200px; /* מגביל את הרוחב המקסימלי של הגלריה כדי שלא תימתח יותר מדי במסכים רחבים */
+            margin: 0 auto; /* ממרכז את מיכל הגלריה לאמצע המסך */
+            direction: ltr; /* מגדיר שהתמונות יזרמו משמאל לימין ) */
         }
 
+        /* הגדרות עיצוב עבור כל פריט (קובייה) בגלריה */
         .gallery-item {
-            position: relative;
-            overflow: hidden;
-            border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            height: 250px;
-            transition: transform 0.3s ease;
+            position: relative; /* מאפשר למקם אלמנטים בפנים בצורה מוחלטת אם נרצה בעתיד */
+            overflow: hidden; /* מסתיר כל חלק מהתמונה שיוצא מגבולות הריבוע */            
+            aspect-ratio: 1 / 1; /* קובע יחס קבוע של 1:1 בין הרוחב לגובה כדי ליצור ריבוע מושלם */
         }
 
-        .gallery-item:hover {
-            transform: scale(1.03);
-        }
-
+        /* הגדרות עבור קובץ התמונה עצמו שנמצא בתוך הריבוע */
         .gallery-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
+            width: 100%; /* גורם לתמונה לתפוס 100% מהרוחב של הריבוע שמחזיק אותה */
+            height: 100%; /* גורם לתמונה לתפוס 100% מהגובה של הריבוע שמחזיק אותה */
+            object-fit: cover; /* דואג שהתמונה תתכווץ/תתרחב בצורה פרופורציונלית ותמלא את הריבוע בלי להתעוות */
         }
 
+        /* הגדרות עיצוב עבור אזור הכותרת של הדף */
         .gallery-header {
-            text-align: center;
-            padding: 30px 0;
-            font-family: Arial, sans-serif;
+            text-align: center; /* ממרכז את הכותרת לאמצע הדף */
+            padding: 30px 0; /* יוצר מרווח של 30 פיקסלים מעל ומתחת לכותרת */
+            font-family: Arial, sans-serif; /* קובע את סוג הגופן של הכותרת */
         }
     </style>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+    
+    <%-- מיכל הכותרת של הגלריה --%>
     <div class="gallery-header">
         <h1>תמונות אייקוניות מהספורט שאי אפשר לשכוח</h1>
     </div>
 
+    <%-- מיכל הגלריה שמרכז בתוכו את כל הריבועים --%>
     <div class="gallery-container">
+        
+        <%-- כל דיב (div) עם הקלאס gallery-item מייצג ריבוע אחד בגלריה --%>
         <div class="gallery-item">
             <img src="https://i.insider.com/5dfbeb03855cc21b4f4e05d5?width=800&format=jpeg" alt="Iconic Sport">
         </div>
@@ -73,5 +74,6 @@
         <div class="gallery-item">
             <img src="https://a.espncdn.com/photo/2019/1219/r643661_1296x729_16-9.jpg" alt="Iconic Sport">
         </div>
+        
     </div>
 </asp:Content>
