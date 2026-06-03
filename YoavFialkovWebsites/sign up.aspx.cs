@@ -22,6 +22,7 @@ public partial class form : System.Web.UI.Page
             username = Request.Form["username"];
             password = Request.Form["password"];
 
+            //הסימני שאלה עושים שאם המשתמש לא בחר כלום זה יכתוב
             favoriteSport = Request.Form["favoriteSport"] ?? "Not Selected";
             favoritePlayer = Request.Form["favoritePlayer"] ?? "Not Selected";
             age = Request.Form["age"];
@@ -30,6 +31,7 @@ public partial class form : System.Web.UI.Page
 
             bool userExist = MyAdoHelper.IsExist(sqlSelect);
 
+            //בדיקה אם השם משתמש קיים כבר
             if (userExist)
             {
                 st = "Username already exists!";
@@ -46,7 +48,9 @@ public partial class form : System.Web.UI.Page
 
                 MyAdoHelper.DoQuery("myDB.mdf", sqlInsert);
 
-                st = "Thank you for signing up!";
+                // השורה החדשה שהוספנו: העברה אוטומטית וישירה לדף הכניסה שלך!
+                // שים לב שהשתמשתי בשם הקובץ המדויק כפי שהעלית "sing in.aspx"
+                Response.Redirect("sing in.aspx");
             }
         }
     }

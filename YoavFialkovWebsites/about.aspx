@@ -14,7 +14,6 @@
             width: 200px;           
             height: 200px;          
             object-fit: cover;      /* מונע איוות של התמונה */
-            margin-bottom: 20px;    
             border: 3px solid black; 
         }
         
@@ -27,6 +26,7 @@
             color: black;            
             font-size: 18px;        
         }
+
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
@@ -37,8 +37,8 @@
         <img src="https://upload.wikimedia.org/wikipedia/commons/8/88/Michael_Jordan.jpg" alt="מייקל ג'ורדן" class="profile-img" />
         
         <p class="about-text">
-            שלום, מפתח האתר הוא <strong>יואב פיאלקוב</strong>. יואב בן 15 ולומד בתיכון כצנלסון. 
-            יואב יצר את האתר הזה ובחר בנושא הספורט בגלל שהוא מאוד אוהב לעסוק בו ולהתעדכן בו ביום-יום. 
+            שלום, מפתח האתר הוא יואב פיאלקוב. יואב בן 15 ולומד בתיכון כצנלסון. 
+            יואב יצר את האתר הזה ובחר בנושא הספורט בגלל שהוא מאוד אוהב לעסוק בו ולהתעדכן בו ביום יום. 
             לכן, הוא חשב שאתר שבו כל אחד יכול לרשום כתבת חדשות משלו יהיה פלטפורמה מצוינת לעזור לאנשים להתעדכן בדברים חדשים בעולם הספורט, לשתף את הספורט האהוב עליהם וליצור קהילת אוהדים חמה.
         </p>
         

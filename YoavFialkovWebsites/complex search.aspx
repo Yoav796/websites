@@ -15,6 +15,7 @@
         <br /><hr /><br />
 
         <div style="display: flex; justify-content: center;">
+            <%-- הדפסת משתנה המחרוזת 'st' שהורכב ב-C# (מכיל את טבלת הנתונים או הודעת שגיאה) --%>
             <%=st %>
         </div>
     </div>

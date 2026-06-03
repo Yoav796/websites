@@ -4,7 +4,7 @@
 
 <html>
 <head runat="server">
-    <title>חדשות הספורט</title>
+    <title>חדשות הספורט - יואב פיאלקוב</title>
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
     <style>
@@ -49,7 +49,7 @@
                 <a href="home%20page.aspx">
                     <img src="images/תמונה%20לעבודה.jpg" class="logo-img" alt="Logo" />
                 </a>
-                <h1 class="site-title">אתר הספורט</h1>
+                <h1 class="site-title">חדשות הספורט - יואב פיאלקוב</h1>
             </th>
         </tr>
         <tr>
@@ -83,6 +83,7 @@
                 <%} %>
 
                 <%-- תנאי C#: מציג את כפתור הניהול רק אם המשתמש הוא מנהל (nihol == ok) --%>
+
                 <%if (Session["nihol"] == "ok")
                     { %>
                     
@@ -93,12 +94,10 @@
 
                <%  } %>
   
-                <%-- כפתור חיפוש מורכב (מוצג תמיד לכולם) --%>
-                <a href="complex%20search.aspx">
-                    <img src="images/תמונה4.png" class="nav-img" alt="Complex Search" />
-                </a>
+               
 
-                <%-- תנאי C#: מציג את הכפתורים הבאים רק למשתמשים רשומים או למנהלים --%>
+                <%-- תנאי C#: מציג את הכפתורים הבאים רק למשתמשים רשומים או למנהלים --%>\
+
                 <%if (Session["nihol"] == "ok" || Session["user"] == "ok" ) {  %>
 
                     <%-- כפתור עדכון פרטים --%>
@@ -106,17 +105,24 @@
                         <img src="images/תמונה1.png" class="nav-img" alt="Update Details" />
                     </a>
                     
-                    <%-- כפתור גלריה --%>
-                    <a href="gallery.aspx">
-                        <img src="images/תמונה2.png"  class="nav-img" alt="Gallery" />
-                    </a>
+                    
                     
                     <%-- כפתור התנתקות --%>
                     <a href="log%20out.aspx">
                         <img src="images/תמונה3.png" class="nav-img" alt="Log Out" />
                     </a>
+                    
+                     <%-- כפתור לחיפוש --%>
+                    <a href="complex%20search.aspx">
+                        <img src="images/תמונה4.png" class="nav-img" alt="Complex Search" />
+                    </a>
 
                 <%} %>
+
+                <%-- כפתור גלריה --%>
+                    <a href="gallery.aspx">
+                      <img src="images/תמונה2.png"  class="nav-img" alt="Gallery" />
+                    </a>
 
             </td>
         </tr>        
@@ -128,7 +134,6 @@
             </td>
         </tr>
         <tr>
-            <%-- השורה התחתונה (Footer) - כרגע ריקה --%>
             <td>
             </td>
         </tr>
