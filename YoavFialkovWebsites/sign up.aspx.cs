@@ -38,7 +38,6 @@ public partial class form : System.Web.UI.Page
             }
             else
             {
-                // אם שם המשתמש פנוי, נבנה שאילתת INSERT להוספת המשתמש החדש לטבלה tUsers
                 string sqlInsert = "INSERT INTO tUsers VALUES (" +
                    "N'" + username + "', " +
                    "N'" + password + "', " +
@@ -48,8 +47,7 @@ public partial class form : System.Web.UI.Page
 
                 MyAdoHelper.DoQuery("myDB.mdf", sqlInsert);
 
-                // השורה החדשה שהוספנו: העברה אוטומטית וישירה לדף הכניסה שלך!
-                // שים לב שהשתמשתי בשם הקובץ המדויק כפי שהעלית "sing in.aspx"
+                
                 Response.Redirect("sing in.aspx");
             }
         }

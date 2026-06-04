@@ -3,14 +3,12 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <style>
         .page-header {
-            /* שיניתי את ה-margin כדי שהתוכן לא יקפוץ למעלה ויידחף לתוך התפריט */
             margin-top: 30px;        
             font-size: 42px;    
             color: #1a237e;       
             text-decoration: underline;  
         }
 
-        /* עיצוב חדש לכותרת המשנית כדי שלא תהיה ענקית כמו הכותרת הראשית */
         .sub-header {
             font-size: 40px;
             color: black;
@@ -23,12 +21,11 @@
             text-align: center;
         }
 
-        /* אלמנט העיצוב עבור תמונת הספורט הרחבה */
         .hero-sport-image {
             width: 100%;            
-            max-width: 1000px;      /* הקטנה של התמונה ל-1000 פיקסלים שיישב בול במרכז */
+            max-width: 1000px;      
             height: 350px;          
-            object-fit: cover;     /*גורם לכך שהתמונה לא תיהיה מרוחה וזה חותך את החלקים שיוצאים מהשטח המוגדר לתמונה*/ 
+            object-fit: cover;     /*כדי שהתמונה תיהיה פרופורציומלית*/ 
         }
     </style>
 </asp:Content>

@@ -17,16 +17,15 @@
                 isValid = false;
             }
 
-            // 2. בדיקת תאריך - רק מספרים וסלאשים (למשל: 24/05/2026)
+            // 2. בדיקת תאריך רק מספרים וסלאשים 
             let dateVal = document.getElementById("articleDate").value;
-            // ביטוי רגולרי שבודק שמדובר רק במספרים ובסימן /
             let datePattern = /^[0-9/]+$/;
             if (!datePattern.test(dateVal)) {
                 document.getElementById("articleDateError").innerHTML = "התאריך חייב להכיל מספרים ותווים חוקיים בלבד (לדוגמה: DD/MM/YYYY).";
                 isValid = false;
             }
 
-            // 3. בדיקת תוכן הכתבה - מעל 20 תווים
+            // 3. בדיקת תוכן הכתבה מעל 20 תווים
             let freeTextVal = document.getElementById("freeText").value;
             if (freeTextVal.trim().length <= 20) {
                 document.getElementById("freeTextError").innerHTML = "תוכן הכתבה חייב להכיל מעל 20 אותיות.";

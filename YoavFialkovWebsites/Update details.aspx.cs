@@ -15,9 +15,8 @@ public partial class UpdateDetails : System.Web.UI.Page
             string sport = Request.Form["sport"];
             string date = Request.Form["articleDate"];
             string age = Request.Form["age"];
-            string freeText = Request.Form["freeText"]; // השדה החדש שהוספנו
+            string freeText = Request.Form["freeText"]; 
 
-            // יצירת שאילתת ה-SQL עם ציון מפורש של שמות העמודות כפי שהן ב-Database שלך
             string sqlInsert = "INSERT INTO Seacrh (playerName, sport, [date], age, [freeText]) VALUES (" +
                 "N'" + pName + "', " +
                 "N'" + sport + "', " +

@@ -2,7 +2,6 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <script type="text/javascript">
-        // פונקציית הבדיקה הראשית שמורצת בעת שליחת הטופס
         function checkAll() {
             // איפוס הודעות השגיאה הקודמות כדי שלא יוצגו סתם לגולש
             document.getElementById("usernameError").innerHTML = "";
@@ -10,7 +9,6 @@
             document.getElementById("favoriteSportError").innerHTML = "";
             document.getElementById("favoritePlayerError").innerHTML = "";
 
-            // משתנה בוליאני (אמת/שקר) שמחזיק את סטטוס תקינות הטופס כולו
             let isValid = true;
 
             // הפעלת בדיקות התקינות לשם המשתמש ולסיסמה, ועדכון המשתנה בהתאם
@@ -23,20 +21,17 @@
 
         // פונקציה לבדיקת תקינות שם המשתמש
         function checkUserName() {
-            // קבלת הערך שהמשתמש הקליד בשדה שם המשתמש
             let name = document.getElementById("userName").value;
             // בדיקה האם אורך השם קטן מ-2 תווים או גדול מ-30 תווים
             if (name.length < 2 || name.length > 30) {
-                // הצגת הודעת שגיאה מתאימה לגולש
                 document.getElementById("usernameError").innerHTML = "The length of the name must be between 2 and 30 characters.";
-                return false; // החזרת 'שקר' - השם לא תקין
+                return false; 
             }
-            return true; // החזרת 'אמת' - השם תקין
+            return true; 
         }
 
         // פונקציה לבדיקת תקינות הסיסמה
         function checkPassword() {
-            // קבלת הערך שהמשתמש הקליד בשדה הסיסמה
             let pass = document.getElementById("userPassword").value;
 
             // בדיקה שהסיסמה מכילה לפחות 6 תווים
@@ -45,20 +40,19 @@
                 return false;
             }
 
-            // שימוש בביטויים רגולריים (Regex) לבדיקת תוכן הסיסמה
             let hasUpperCase = /[A-Z]/.test(pass); // בדיקה שיש לפחות אות אחת גדולה באנגלית
             let hasLowerCase = /[a-z]/.test(pass); // בדיקה שיש לפחות אות אחת קטנה באנגלית
             let hasNumbers = /[0-9]/.test(pass);   // בדיקה שיש לפחות מספר אחד
 
-            // אם אחד מהתנאים לא מתקיים (חסר סוג תו מסוים)
             if (!hasUpperCase || !hasLowerCase || !hasNumbers) {
                 document.getElementById("passwordError").innerHTML = "Password must contain at least one uppercase letter, one lowercase letter, and one number.";
-                return false; // הסיסמה לא עומדת בדרישות האבטחה
+                return false; 
             }
 
-            return true; // הסיסמה חזקה ותקינה
+            return true; 
         }
     </script>
+
     <style>
         /* קלאס עיצוב עבור הודעות השגיאה: צבע אדום, טקסט קטן ורווח מלמעלה */
         .error { color: red; font-size: 14px; display: block; margin-top: 5px; }

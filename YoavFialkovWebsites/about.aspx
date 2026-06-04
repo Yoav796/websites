@@ -6,8 +6,8 @@
             max-width: 600px;       
             margin: 40px auto;      /* גורם לפסקה להיות באצמע הדף */
             font-family: Arial, sans-serif; 
-            direction: rtl;         /* השיהיה מותאם לעברית */
-            line-height: 1.6;       /* הגדלת המרווח בין השורות כדי שיהיה נוח לקרוא */
+            direction: rtl;          
+            line-height: 1.6;       
         }
         
         .profile-img {

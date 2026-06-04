@@ -8,43 +8,39 @@
     <asp:ContentPlaceHolder id="head" runat="server">
     </asp:ContentPlaceHolder>
     <style>
-        /* הגדרת עיצוב לכל תאי הטבלה באתר */
         td {
-            text-align: center; /* ממרכז את כל התוכן (טקסט ותמונות) שבתוך התאים לאמצע */
+            text-align: center; 
         }
         
         /* הגדרת עיצוב לתמונות של כפתורי התפריט (חוץ מהלוגו) */
         .nav-img {
-            height: 90px;          /* [!] הגדלנו את גובה הכפתורים מ-40 פיקסלים ל-65 פיקסלים */
-            width: auto;           /* שומר על פרופורציות התמונה המקוריות כדי שלא תתעוות או תימתח */
-            margin-right: 15px;    /* יוצר רווח של 15 פיקסלים מצד ימין בין כפתור לכפתור */
-            vertical-align: middle;/* מיישר את כל כפתורי התמונות שיישבו יפה באותו קו גובה באמצע השורה */
-            border: none;          /* מבטל מסגרת כחולה או שחורה אוטומטית שדפדפנים שמים לפעמים על תמונות שהן לינקים */
+            height: 90px;          
+            width: auto;           
+            margin-right: 15px;    
+            vertical-align: middle;
+            border: none;          
         }
         
         /* הגדרת עיצוב ללוגו הראשי של האתר בלבד */
         .logo-img {
-            height: 100px;         /* קובע את גובה הלוגו ל-100 פיקסלים (נשאר קבוע ולא השתנה) */
-            width: auto;           /* שומר על פרופורציות הלוגו המקוריות */
-            vertical-align: middle;/* מיישר את הלוגו לאותו קו גובה עם כותרת הטקסט שלידו */
-            margin-left: 15px;     /* יוצר רווח של 15 פיקסלים מצד שמאל, בין הלוגו לכותרת */
+            height: 100px;        
+            width: auto;           
+            vertical-align: middle;
+            margin-left: 15px;     
         }
         
         /* הגדרת עיצוב לכותרת הטקסט שליד הלוגו */
         .site-title {
-            display: inline-block; /* מאפשר לכותרת לעמוד בשורה אחת ישירות ליד הלוגו */
-            vertical-align: middle;/* מיישר את כותרת הטקסט לאמצע הגובה של הלוגו */
+            display: inline-block; /*כדי שהלוגו והתמונה יהיו באותו גובה*/
         }
     </style>
 </head>
 <body style="background-color:darkgray">
-     <%-- הדפסת שם המשתמש המחובר כרגע (מתוך ה-Session) בראש הדף --%>
      <%=Session["username"] %>
 
     <%-- הטבלה הראשית שבונה את מבנה האתר --%>
     <table  style="width: 100%; height: 800px">
         <tr>
-            <%-- השורה העליונה: אזור הלוגו וכותרת האתר --%>
             <th style="height: 150px">
                 <a href="home%20page.aspx">
                     <img src="images/תמונה%20לעבודה.jpg" class="logo-img" alt="Logo" />
@@ -53,41 +49,33 @@
             </th>
         </tr>
         <tr>
-            <%-- השורה השנייה: תפריט כפתורי הניווט של האתר --%>
             <td style="height: 150px">
                 
-                <%-- כפתור דף הבית --%>
                 <a href="home%20page.aspx">
                     <img src="images/תמונה7.png"  class="nav-img" alt="Home Page" />
                 </a>
                 
-                <%-- כפתור אודות --%>
                 <a href="about.aspx">
                     <img src="images/תמונה6.png"  class="nav-img" alt="About" />
                 </a>
 
-                <%-- תנאי C#: מציג את כפתורי ההרשמה וההתחברות רק לאורחים (מי שלא מחובר או guest) --%>
                 <%if (Session["username"] == null || Session["username"].ToString() == "" || Session["username"].ToString() == "guest")
                     {%>
                 
-                    <%-- כפתור הרשמה --%>
                     <a href="sign%20up.aspx">
                         <img src="images/תמונה%208.png"  class="nav-img" alt="Sign Up" />
                     </a>
                 
-                    <%-- כפתור התחברות --%>
                     <a href="sing%20in.aspx">
                         <img src="images/תמונה9.png"  class="nav-img" alt="Sign In" />
                     </a>
 
                 <%} %>
 
-                <%-- תנאי C#: מציג את כפתור הניהול רק אם המשתמש הוא מנהל (nihol == ok) --%>
 
                 <%if (Session["nihol"] == "ok")
                     { %>
                     
-                    <%-- כפתור דף ניהול למנהל --%>
                     <a href="manager.aspx">
                         <img src="images/תמונה5.png" class="nav-img" alt="Manager" />
                     </a>
@@ -96,30 +84,25 @@
   
                
 
-                <%-- תנאי C#: מציג את הכפתורים הבאים רק למשתמשים רשומים או למנהלים --%>\
 
                 <%if (Session["nihol"] == "ok" || Session["user"] == "ok" ) {  %>
 
-                    <%-- כפתור עדכון פרטים --%>
                     <a href="Update%20details.aspx">
                         <img src="images/תמונה1.png" class="nav-img" alt="Update Details" />
                     </a>
                     
                     
                     
-                    <%-- כפתור התנתקות --%>
                     <a href="log%20out.aspx">
                         <img src="images/תמונה3.png" class="nav-img" alt="Log Out" />
                     </a>
                     
-                     <%-- כפתור לחיפוש --%>
                     <a href="complex%20search.aspx">
                         <img src="images/תמונה4.png" class="nav-img" alt="Complex Search" />
                     </a>
 
                 <%} %>
 
-                <%-- כפתור גלריה --%>
                     <a href="gallery.aspx">
                       <img src="images/תמונה2.png"  class="nav-img" alt="Gallery" />
                     </a>
@@ -127,7 +110,6 @@
             </td>
         </tr>        
         <tr>
-            <%-- השורה השלישית: כאן יוצג התוכן המשתנה של כל דף בנפרד --%>
             <td style="height: 400px">
                 <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
                 </asp:ContentPlaceHolder>
