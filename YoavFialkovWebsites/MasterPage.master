@@ -42,7 +42,7 @@
      <%=Session["username"] %>
 
     <%-- הטבלה הראשית שבונה את מבנה האתר --%>
-    <table border="1" style="width: 100%; height: 800px">
+    <table  style="width: 100%; height: 800px">
         <tr>
             <%-- השורה העליונה: אזור הלוגו וכותרת האתר --%>
             <th style="height: 150px">
